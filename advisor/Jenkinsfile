@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                git 'https://github.com/Dimitria-Dev/micro-services.git'
+                sh './mvnw clean install'
             }
         }
     }
