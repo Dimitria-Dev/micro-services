@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<body>
+    <h1>Your For Has Been Submitted!</h1>
+    <p th:text="'Name: ' + ${message.firstName} + ' ' + ${message.lastName}"></p>
+    <p th:text="'Email: ' + ${message.email}"></p>
+    <p th:text="'Degree Program: ' + ${message.degreeProgram}"></p>
+    <p th:text="'Advisor ID: ' + ${message.advisorId}"></p>
+    <p th:text="'Message: ' + ${message.message}"></p>
+    <a href="/form">Go back to form</a>
+
+</body>
+</html>
