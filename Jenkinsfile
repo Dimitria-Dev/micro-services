@@ -11,7 +11,6 @@ pipeline {
                     sh 'cd advisor && mvn clean package'
                     sh 'cd student && mvn clean package'
                 }
-
             }
         }
         stage('Test') {
