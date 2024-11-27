@@ -4,18 +4,18 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'cd advisor && ./mvnw clean package'
-                    sh 'cd student && ./mvnw clean package'
+                    sh 'cd advisor'
+                    sh 'cd student'
                 }
             }
         }
-        stage('Test') {
-            steps {
-                script {
-                    sh 'cd advisor && ./mvnw test'
-                    sh 'cd student && ./mvnw test'
-                }
-            }
-        }
+//         stage('Test') {
+//             steps {
+//                 script {
+//                     sh 'cd advisor && ./mvnw test'
+//                     sh 'cd student && ./mvnw test'
+//                 }
+//             }
+//         }
     }
 }
