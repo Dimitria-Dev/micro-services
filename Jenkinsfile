@@ -17,13 +17,5 @@ pipeline {
                 }
             }
         }
-        stage('Docker Image') {
-            steps {
-                script {
-                    sh 'docker build -t microservices-dockerfile .'
-               }
-            }
-        }
-
     }
 }
