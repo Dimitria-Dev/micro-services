@@ -17,12 +17,13 @@ pipeline {
                 }
             }
         }
-        stage('Build Docker Image') {
-                    steps {
-                        script {
-                            sh 'docker build -t dimitriadeveaux/micro-service .'
-                        }
-                    }
-                }
+        stage('Docker Image') {
+            steps {
+                script {
+                    sh 'docker build -t microservices-dockerfile .'
+               }
+            }
+        }
+
     }
 }
