@@ -2,6 +2,8 @@ package com.microservice.advisor;
 
 import com.microservice.advisor.client.StudentClient;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,10 +12,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdvisorService {
     private final AdvisorRepo repository;
-
     private final StudentClient client;
 
+    Logger logger = LoggerFactory.getLogger(AdvisorService.class);
+
     public void save(Advisor advisor) {
+        logger.info("A new advisor has been created ");
         repository.save(advisor);
     }
 
