@@ -3,19 +3,24 @@ pipeline {
 
     stages {
         stage('Checkout'){
-            checkout scm
+            steps {
+                checkout scm
+            }
         }
 
         stage('Build') {
             steps {
-                git 'https://github.com/Dimitria-Dev/micro-services.git'
-                sh 'mvn clean install'
+                script {
+                    sh 'mvn clean install'
+                }
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                script {
+                    sh 'mvn test'
+                }
             }
 
         }
