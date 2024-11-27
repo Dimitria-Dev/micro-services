@@ -2,10 +2,26 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                script {
+                    sh './mvnw clean install'
+                }
             }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    sh './mvnw test'
+                }
+            }
+            post {
+                always {
+                    junit '**/target/surefire-reports/*.xml'
+                }
+            }
+
         }
     }
 }
