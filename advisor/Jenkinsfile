@@ -2,21 +2,27 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Checkout'){
             steps {
-                git 'https://github.com/Dimitria-Dev/micro-services.git'
-                sh './mvnw clean install'
+                checkout scm
             }
         }
-        stage('Test') {
+
+        stage('Build') {
             steps {
-                sh './mvnw test'
-            }
-            post {
-                always {
-                    junit '**/target/surefire-reports/TEST-*xml'
+                script {
+                    sh 'mvn clean install'
                 }
             }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    sh 'mvn test'
+                }
+            }
+
         }
     }
 }
